@@ -1,9 +1,11 @@
 name: Minify Tailwind CSS
-run-name: Minifying Tailwind...
+run-name: Minifying Tailwind
 on: push
+permissions:
+    contents: write
 
 jobs:
-  - Setup-Tailwind:
+  Setup-Tailwind:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,8 +13,21 @@ jobs:
         with:
           cache: npm
       - run: "npm install -D tailwindcss"
-  - Minify-Tailwind:
+
+  Minify-Tailwind:
     runs-on: ubuntu-latest
     steps:
-      - run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.ss --minify
+      - run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
+
+  Commit-Minified:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          git config --global user.name fer-hnndz
+          git config --global user.email jfernandohernandez28@gmail.com
+          git add .
+          git commit -m "Minified tailwind"
+          git push
+
+  
 
