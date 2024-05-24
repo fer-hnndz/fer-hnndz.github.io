@@ -15,11 +15,13 @@ jobs:
       - run: "npm install -D tailwindcss"
 
   Minify-Tailwind:
+    needs: Setup-Tailwind
     runs-on: ubuntu-latest
     steps:
       - run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
 
   Commit-Minified:
+    needs: [Setup-Tailwind, Minify-Tailwind]
     runs-on: ubuntu-latest
     steps:
       - run: |
