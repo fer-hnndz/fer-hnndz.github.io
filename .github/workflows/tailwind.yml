@@ -5,31 +5,29 @@ permissions:
     contents: write
 
 jobs:
-  Setup-Tailwind:
+  Minify-Tailwind:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: "npm install -D tailwindcss"
+      
+      - name: Install dependencies
+        run: npm install -D tailwindcss
+        
+      - name: Minify Tailwind CSS
+        run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
 
-  Minify-Tailwind:
-    needs: Setup-Tailwind
-    runs-on: ubuntu-latest
-    steps:
-      - run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
-
-  Commit-Minified:
-    needs: [Setup-Tailwind, Minify-Tailwind]
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          git config --global user.name fer-hnndz
-          git config --global user.email jfernandohernandez28@gmail.com
-          git add .
+      - name: Commit and push minified CSS
+        run: |
+          git config --global user.name "fer-hnndz"
+          git config --global user.email "jfernandohernandez28@gmail.com"
+          git add ./static/css/index.css
           git commit -m "Minified tailwind"
           git push
-
-  
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
