@@ -1,0 +1,19 @@
+name: Minify Tailwind CSS
+run-name: Minifying Tailwind...
+description: Re-runs Tailwind's tool to minify classes
+on: push
+
+jobs:
+  Setup-Tailwind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: npm
+      - run: "npm install -D tailwindcss"
+    Minify-Tailwind:
+      runs-on: ubuntu-latest
+      steps:
+        - run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.ss --minify
+
