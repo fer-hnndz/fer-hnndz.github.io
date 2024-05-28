@@ -36,7 +36,7 @@
 
     <!-- Section selector -->
     <div class="flex items-center justify-center mt-4 space-x-4">
-        <span class="material-symbols-outlined text-gray-500" id="icon-left">
+        <span class="material-symbols-outlined text-green-500" id="icon-left">
             laptop_chromebook
         </span>
 
@@ -52,7 +52,7 @@
         </span>
     </div>
 
-    <div class="text-center flex flex-col items-center justify-center mx-5">
+    <div class="text-center flex flex-col items-center justify-center mx-5" id="projects">
         <h1 class="font-mono text-5xl pt-2">Projects</h1>
 
         <div class="shadow-md rounded w-fit h-fit p-4">
@@ -66,17 +66,35 @@
         </div>
     </div>
 
+    <div class="hidden" id="education">
+        <h1 class="font-mono text-5xl pt-2">Education</h1>
+
+        <div class="shadow-md rounded w-fit h-fit p-4">
+            <h1 class="font-mono text-lg text-blue-500"><a href="https://github.com/fer-hnndz/budgetize">Budgetize</a>
+            </h1>
+            <p>A Terminal User Interface (TUI) to create budgets, track your incomes/expenses and manage your
+                finances.
+            </p>
+        </div>
+    </div>
+
     <script>
         document.getElementById('toggle-switch').addEventListener('change', function () {
             const iconLeft = document.getElementById('icon-left');
             const iconRight = document.getElementById('icon-right');
 
+            let educationDiv = document.getElementById("education")
+            let projectsDiv = document.getElementById("projects")
             if (this.checked) {
+                projectsDiv.classList.add("hidden")
+                educationDiv.classList.remove("hidden")
                 iconLeft.classList.add('text-green-500');
                 iconLeft.classList.remove('text-gray-500');
                 iconRight.classList.add('text-gray-500');
                 iconRight.classList.remove('text-green-500');
             } else {
+                projectsDiv.classList.remove("hidden")
+                educationDiv.classList.add("hidden")
                 iconLeft.classList.add('text-gray-500');
                 iconLeft.classList.remove('text-green-500');
                 iconRight.classList.add('text-green-500');
