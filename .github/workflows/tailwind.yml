@@ -1,6 +1,6 @@
-name: Minify Tailwind CSS
-run-name: Minifying Tailwind
-on: push
+name: Pre-build checks
+run-name: Preparing for deploy to GH Pages
+on: [push, pull_request] 
 permissions:
     contents: write
 
@@ -17,7 +17,9 @@ jobs:
           node-version: 18
       
       - name: Install dependencies
-        run: npm install -D tailwindcss
+        run: |
+          npm install -D tailwindcss
+          npm install -D eslint
         
       - name: Minify Tailwind CSS
         run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
@@ -31,3 +33,19 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint Javascript
+        run: npx eslint ./static/js/switchControl.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload page artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: personal-website
+          path: /
+
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v1
+        with:
+          artifact_name: personal-website
