@@ -12,14 +12,44 @@
             height: 100%;
             width: 100vw;
         }
+
+        .switch input:checked+.slider {
+            background-color: #10b981;
+        }
+
+        .switch input:checked+.slider:before {
+            transform: translateX(1.25rem);
+        }
     </style>
+
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body class="overflow-x-clip">
+
     <div class="px-3 flex flex-col items-center justify-center h-2/4 bg-red-800 sm:h-1/4">
         <h1 class="font-serif font-bold text-5xl">Jorge Hernández</h1>
         <span class="font-thin">Computer Systems Engineer Student | Aspiring Backend Developer</span>
+    </div>
+
+    <!-- Section selector -->
+    <div class="flex items-center justify-center mt-4 space-x-4">
+        <span class="material-symbols-outlined text-gray-500" id="icon-left">
+            laptop_chromebook
+        </span>
+
+        <!-- Switch -->
+        <label class="switch relative inline-block w-12 h-6">
+            <input type="checkbox" class="sr-only" id="toggle-switch">
+            <span
+                class="slider block bg-gray-300 absolute inset-0 cursor-pointer rounded-full transition duration-300 ease-in-out"></span>
+        </label>
+
+        <span class="material-symbols-outlined text-gray-500" id="icon-right">
+            school
+        </span>
     </div>
 
     <div class="text-center flex flex-col items-center justify-center mx-5">
@@ -28,11 +58,32 @@
         <div class="shadow-md rounded w-fit h-fit p-4">
             <h1 class="font-mono text-lg text-blue-500"><a href="https://github.com/fer-hnndz/budgetize">Budgetize</a>
             </h1>
-            <p>A Terminal User Interface (TUI) to create budgets, track your incomes/expenses and manage your finances.
+            <p>A Terminal User Interface (TUI) to create budgets, track your incomes/expenses and manage your
+                finances.
             </p>
 
             <img class="pt-2" src="https://github.com/fer-hnndz/budgetize/raw/master/docs/budgetize_hero.png">
         </div>
+    </div>
+
+    <script>
+        document.getElementById('toggle-switch').addEventListener('change', function () {
+            const iconLeft = document.getElementById('icon-left');
+            const iconRight = document.getElementById('icon-right');
+
+            if (this.checked) {
+                iconLeft.classList.add('text-green-500');
+                iconLeft.classList.remove('text-gray-500');
+                iconRight.classList.add('text-gray-500');
+                iconRight.classList.remove('text-green-500');
+            } else {
+                iconLeft.classList.add('text-gray-500');
+                iconLeft.classList.remove('text-green-500');
+                iconRight.classList.add('text-green-500');
+                iconRight.classList.remove('text-gray-500');
+            }
+        });
+    </script>
 </body>
 
-</html
+</html>
