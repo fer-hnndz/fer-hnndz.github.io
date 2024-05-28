@@ -46,7 +46,7 @@ jobs:
           node-version: 18
         
       - name: Install dependencies
-        run: npm install
+        run: npm install eslint --save-dev
       
       - name: Lint Javascript
         run: npx eslint ./static/js/switchControl.js --no-config-lookup
