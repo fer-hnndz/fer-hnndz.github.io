@@ -3,6 +3,7 @@ run-name: Preparing for deploy to GH Pages
 on: [push, pull_request]
 permissions:
   contents: write
+  id-token: write 
 
 jobs:
   Minify-Tailwind:
@@ -74,3 +75,5 @@ jobs:
         uses: actions/deploy-pages@v1
         with:
           artifact_name: personal-website
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
