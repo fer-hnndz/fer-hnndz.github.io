@@ -33,6 +33,7 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          continue-on-error: true
 
       - name: Lint Javascript
         run: npx eslint ./static/js/switchControl.js --no-config-lookup
