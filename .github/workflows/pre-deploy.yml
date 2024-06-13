@@ -32,6 +32,12 @@ jobs:
   
         continue-on-error: true
 
+      - name: Prepare artifact for upload
+        run: |
+          mkdir -p artifact
+          cp -r ./static ./artifact/
+          cp -r ./index.html ./artifact/
+    
       - name: Upload page artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -44,18 +50,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Prepare artifact for upload
-        run: |
-          mkdir -p artifact
-          cp -r ./static ./artifact/
-          cp -r ./index.html ./artifact/
-    
-      - name: Upload page artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          name: personal-website
-          path: artifact/
     
       - name: Deploy to Github Pages
         uses: actions/deploy-pages@v1
