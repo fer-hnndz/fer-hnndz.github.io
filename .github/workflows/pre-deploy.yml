@@ -7,7 +7,7 @@ permissions:
   pages: write
 
 jobs:
-  Minify-Tailwind:
+  Code-Check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,42 +19,27 @@ jobs:
           node-version: 18
       
       - name: Install dependencies
-        run: npm install -D tailwindcss
+        run: npm install -D tailwindcss eslint
       
       - name: Minify Tailwind CSS
         run: npx tailwindcss -i ./static/css/input.css -o ./static/css/index.css --minify
 
-      - name: Commit and push minified CSS
-        run: |
-          git config --global user.name "fer-hnndz"
-          git config --global user.email "jfernandohernandez28@gmail.com"
-          git add ./static/css/index.css
-          git commit -m "Minified tailwind" || echo "No changes to commit"
-          git push || echo "Push failed"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-
-  Lint-Javascript:
-    needs: Minify-Tailwind
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-          
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-        
       - name: Install dependencies
         run: npm install eslint --save-dev
       
       - name: Lint Javascript
         run: npx eslint ./static/js/switchControl.js --no-config-lookup
+  
+        continue-on-error: true
+
+      - name: Upload page artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: personal-website
+          path: artifact/
 
   Deploy:
-    needs: Lint-Javascript
+    needs: Code-Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -78,3 +63,16 @@ jobs:
           artifact_name: personal-website
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  Verify:
+    runs-on: ubuntu-latest
+    needs: Deploy
+    steps:
+      - name: Verify deployment
+        run: |
+          echo "Verifying deployment"
+          for i in {1..5}; do
+            curl -I https://fer-hnndz.github.io/ | grep "200 OK" && break || sleep 10
+          done
+
+        
