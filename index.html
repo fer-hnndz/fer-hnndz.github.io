@@ -1,106 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge Hernández</title>
-
-    <style>
-        html,
-        body {
-            height: 100%;
-            width: 100vw;
-        }
-
-        .switch input:checked+.slider {
-            background-color: #10b981;
-        }
-
-        .switch input:checked+.slider:before {
-            transform: translateX(1.25rem);
-        }
-    </style>
-
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-</head>
-
-<body class="overflow-x-clip">
-
-    <div class="px-3 flex flex-col items-center justify-center h-2/4 bg-red-800 sm:h-1/4">
-        <h1 class="font-serif font-bold text-5xl">Jorge Hernández</h1>
-        <span class="font-thin">Computer Systems Engineer Student | Aspiring Backend Developer</span>
-    </div>
-
-    <!-- Section selector -->
-    <div class="flex items-center justify-center mt-4 space-x-4">
-        <span class="material-symbols-outlined text-green-500" id="icon-left">
-            laptop_chromebook
-        </span>
-
-        <!-- Switch -->
-        <label class="switch relative inline-block w-12 h-6">
-            <input type="checkbox" class="sr-only" id="toggle-switch">
-            <span
-                class="slider block bg-gray-300 absolute inset-0 cursor-pointer rounded-full transition duration-300 ease-in-out"></span>
-        </label>
-
-        <span class="material-symbols-outlined text-gray-500" id="icon-right">
-            school
-        </span>
-    </div>
-
-    <div class="text-center flex flex-col items-center justify-center mx-5" id="projects">
-        <h1 class="font-mono text-5xl pt-2">Projects</h1>
-
-        <div class="shadow-md rounded w-fit h-fit p-4">
-            <h1 class="font-mono text-lg text-blue-500"><a href="https://github.com/fer-hnndz/budgetize">Budgetize</a>
-            </h1>
-            <p>A Terminal User Interface (TUI) to create budgets, track your incomes/expenses and manage your
-                finances.
-            </p>
-
-            <img class="pt-2" src="https://github.com/fer-hnndz/budgetize/raw/master/docs/budgetize_hero.png">
-        </div>
-    </div>
-
-    <div class="flex flex-col items-center justify-center hidden" id="education">
-        <h1 class="font-mono text-5xl pt-2">Education</h1>
-
-        <div class="shadow-md rounded w-fit h-fit p-4">
-            <h1 class="font-serif text-lg"><a href="https://github.com/fer-hnndz/budgetize">Universidad
-                    Tecnológica Centroamericana</a>
-            </h1>
-            <p>Bachelor of Science - BS, Computer Systems Engineering</p>
-            <span class="font-serif italic text-slate-500">Jan 2023 - (Expected) Dec 2027 </span>
-
-        </div>
-
-        <div class="shadow-md rounded w-fit h-fit p-4">
-            <h1 class="font-serif text-lg">Harvard Online</h1>
-            <p>Diploma of Education, Computer Science</p>
-            <span class="font-serif italic text-slate-500">Nov 2021 - Apr 2022</span>
-            <p class="mt-3 text-sm w-1/2">Introduction to Computer Science course to understand programming concepts and
-                be
-                able to
-                develop
-                problem-solving skills.
-
-                Activities and societies: - Solved problems sets and labs using programming languages such as Python or
-                C.
-                - Created a web stock trading simulator using Python, HTML, CSS, Flask and REST APIs.
-                - Presented a To-Do Manager web app as final project created with Python, Flask, HTML, CSS and SQLite as
-                database engine.Activities and societies: - Solved problems sets and labs using programming languages
-                such as Python or C. - Created a web stock trading simulator using Python, HTML, CSS, Flask and REST
-                APIs. - Presented a To-Do Manager web app as final project created with Python, Flask, HTML, CSS and
-                SQLite as database engine.
-            </p>
-        </div>
-    </div>
-
-    <script src="static/js/switchControl.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
