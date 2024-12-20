@@ -6,7 +6,11 @@ export default {
     "./index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        fellaRed: "#C1292E"
+      }
+    },
   },
   plugins: [],
 }
