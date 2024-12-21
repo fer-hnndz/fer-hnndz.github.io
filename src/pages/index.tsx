@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card, Tag } from "antd";
 import { ArrowDownOutlined } from "@ant-design/icons";
+import hero from "./static/hero.png";
+
 
 type Repository = { id: number, name: string, description: string, archived: boolean, license: { name: string, spdx_id: string }, language: string, stargazers_count: number, html_url: string }
 
@@ -78,12 +80,11 @@ export default function Index() {
                             <h1 id="world-header" className="text-7xl font-semibold font-serif">{worldText}</h1>
                             <p className="text-lg my-1 font-mono mt-5 ml-2">User-Agent: Jorge Hernández</p>
                             <p className="text-lg my-1 font-mono ml-2">Accept-Language: es, en, de</p>
-                            <p className="text-lg font-mono ml-2">Accept: preferred-role/backend, lang/python (and more...)</p>
                         </div>
 
                         {/* Scroll Icon */}
                         <div
-                            className="text-center mt-auto my-12 md:my-0 md:mt-12 h-fit cursor-pointer"
+                            className="text-center my-16 md:my-0 md:mt-12 h-fit cursor-pointer"
                             onClick={() => scrollTo("projects-header")}
                         >
                             <ArrowDownOutlined className="text-center text-white text-5xl animate-bounce" />
@@ -94,7 +95,7 @@ export default function Index() {
                 {/* Right Image */}
                 <div className="flex">
                     <img
-                        src="../src/assets/hero.png"
+                        src={hero}
                         className="bg-blue-500 rounded-full w-60 h-60 object-cover mx-auto mt-4 md:object-cover md:w-auto md:h-full md:rounded-none md:mt-0"
                         alt="Myself"
                     />
@@ -104,12 +105,12 @@ export default function Index() {
 
             {/* About Me Section */}
             <div className="bg-white text-black">
-                <h1 id="projects-header" className="text-6xl font-semibold py-12 text-center font-serif">
+                <h1 id="about-header" className="text-6xl font-semibold py-12 text-center font-serif">
                     About Me
                 </h1>
 
-                <p className="text-justify text-lg font-semibold w-1/2 mx-auto mb-12">
-                    I am currently pursuing a Bachelor's Degree in Software Engineering.
+                <p className="text-justify text-lg font-semibold w-5/6 md:w-1/2 mx-auto mb-12">
+                    My name is Jorge, and I am an aspiring Software Engineer based in Honduras. I am currently pursuing a Bachelor's Degree in Software Engineering at <a className="text-blue-500" href="https://www.unitec.edu" target="_blank" rel="noopener noreferrer">UNITEC</a>.
                     Although I lack professional work experience, my eagerness to learn and passion for this field have driven me to work on several self-initiated projects.
                     Additionally, I have contributed to improving existing software, such as <i><a className="text-blue-500" href="https://casadavid.org">Casa David</a>'s</i> internal software.
                     <br />
