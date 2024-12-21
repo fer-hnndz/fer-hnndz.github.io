@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        fellaRed: "#C1292E"
+        fellaRed: "#C1292E",
+        racingYellow: "#FFC857"
       }
     },
   },
