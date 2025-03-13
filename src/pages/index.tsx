@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Card, Tag } from "antd";
 import { ArrowDownOutlined } from "@ant-design/icons";
 import hero from "./static/hero.png";
+import { PiReadCvLogoFill } from "react-icons/pi";
+import { SiTypescript } from "react-icons/si";
 
 type Repository = {
   id: number;
@@ -107,6 +109,14 @@ export default function Index() {
               <p className="text-lg my-1 font-mono ml-2">
                 Accept-Language: es, en, de
               </p>
+
+              <a
+                href="https://drive.google.com/uc?export=download&id=1MGBvrwi1JkgtVkcXWwFusMbJdKxjYJ3R"
+                className="flex flex-row items-center gap-x-1 my-1 ml-2"
+              >
+                <PiReadCvLogoFill />
+                <span className="font-sans text-lg">Download CV</span>
+              </a>
             </div>
 
             {/* Scroll Icon */}
@@ -174,8 +184,20 @@ export default function Index() {
         </p>
       </div>
 
-      {/* Projects Section */}
+      {/* Skills Section */}
       <div className="bg-black text-white">
+        <h1
+          id="about-header"
+          className="text-6xl font-semibold py-12 text-center font-serif"
+        >
+          Skills
+        </h1>
+
+        <div></div>
+      </div>
+
+      {/* Projects Section */}
+      <div className="bg-white text-black">
         <h1
           id="projects-header"
           className="text-6xl font-semibold py-12 text-center font-serif"
