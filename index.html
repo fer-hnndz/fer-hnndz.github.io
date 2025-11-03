@@ -9,11 +9,11 @@
   <title>fer-hnndz.github.io</title>
 </head>
 
-<body class="bg-[#eff1f5] text-fg ">
-  <nav class="border-b border-fg sticky flex w-full flex-row items-center py-3">
+<body class="bg-[#eff1f5] text-fg">
+  <nav class="border-b border-fg sticky flex w-screen flex-row items-center py-3 mx-2">
     <h1 class="text-xl font-semibold ml-2 text">Jorge Hernández</h1>
 
-    <div class="flex-row justify-center h-full w-fit ml-auto pr-5 gap-x-6 flex">
+    <div class="flex-row justify-center h-full w-fit ml-auto mr-8 gap-x-6 flex">
       <span class="underline hover:cursor-pointer">Home</span>
       <span class="hover:cursor-pointer hover:underline">About</span>
       <span class="hover:cursor-pointer hover:underline">Contact</span>
@@ -21,8 +21,10 @@
   </nav>
 
 
-  <div class="flex flex-col lg:flex-row justify-between w-11/12 mx-auto lg:mx-0 lg:px-4 pt-4 h-4/5">
-    <div class="overflow-y-auto">
+  <!-- Layout container -->
+  <div class="container-md flex flex-col lg:flex-row justify-between w-11/12 mx-auto lg:mx-4 pt-4 lg:h-screen gap-x-3">
+
+    <div class="lg:h-10/12 basis-2/3 lg:overflow-y-scroll scroll-pb-5">
       <div class="py-3 flex flex-col gap-x-1">
 
         <h1 class="font-bold text-lg">ABOUT ME</h1>
@@ -115,13 +117,14 @@
     </div>
     <!-- END OF INFORMATION SECTION -->
 
-    <hr class="w-11/12 my-3 lg:hidden" />
-    <div id="work">
+    <hr class="w-4/5 my-3 lg:hidden" />
+    <div id="work" class="shrink">
       <h1 class="text-xl font-extrabold">FEATURED WORK</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, architecto reiciendis! Quam quibusdam adipisci
         maiores doloribus. Facilis in vitae, maxime, repellat architecto nemo ullam asperiores deleniti, magnam alias
         suscipit eius.</p>
     </div>
+
   </div>
 
 </body>
