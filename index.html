@@ -1,13 +1,129 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fer-hnndz.github.io</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <title>fer-hnndz.github.io</title>
+</head>
+
+<body class="bg-[#eff1f5] text-fg ">
+  <nav class="border-b border-fg sticky flex w-full flex-row items-center py-3">
+    <h1 class="text-xl font-semibold ml-2 text">Jorge Hernández</h1>
+
+    <div class="flex-row justify-center h-full w-fit ml-auto pr-5 gap-x-6 flex">
+      <span class="underline hover:cursor-pointer">Home</span>
+      <span class="hover:cursor-pointer hover:underline">About</span>
+      <span class="hover:cursor-pointer hover:underline">Contact</span>
+    </div>
+  </nav>
+
+
+  <div class="flex flex-col lg:flex-row justify-between w-11/12 mx-auto lg:mx-0 lg:px-4 pt-4 h-4/5">
+    <div class="overflow-y-auto">
+      <div class="py-3 flex flex-col gap-x-1">
+
+        <h1 class="font-bold text-lg">ABOUT ME</h1>
+
+        <span>
+          I'm a prospect software engineer passionate about building impactful and highly efficient software
+          solutions, sharing knowledge with the world and contributing to open-source projects.
+        </span>
+
+        <span class="mt-5 text-sm italic">🎓 Software Engineer Student @ <a target="_blank" href="https://unitec.edu"
+            class="underline">Universidad Tecnológica Centroamericana</a> | ⚙️ Contributor @ <a target="_blank"
+            href="https://github.com/spotDL/spotify-downloader" class="underline">spotDL</a>
+        </span>
+        <!-- TODO: Socials Here -->
+      </div>
+      <!-- END OF ABOUT ME -->
+
+      <div class="py-3 flex flex-col border-t border-fg gap-x-1">
+        <h1 class="font-bold text-lg">EXTRACURRICULAR/VOLUNTEER EXPERIENCE</h1>
+
+        <div class="flex flex-row items-center justify-between">
+          <h2 class="font-bold w-2/3">
+            Casa David - Lead Developer
+          </h2>
+
+          <span>October - December 2024</span>
+        </div>
+
+        <p>Led the v1.1 update of Casa David’s internal software, fixing bugs and adding features based on user
+          feedback. Contributed to both frontend (React, Tailwind CSS) and backend (Express.js, PostgreSQL) development,
+          and successfully migrated and deployed the app to Heroku for improved reliability and user experience</p>
+
+
+        <!-- <div class="mt-5 flex flex-row items-center justify-between">
+          <h2 class="font-bold w-2/3">
+            Casa David - Lead Developer
+          </h2>
+
+          <span>October - December 2024</span>
+        </div>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quaerat delectus, atque dolore est, eius
+          quidem necessitatibus voluptatibus reprehenderit corrupti totam, similique dignissimos enim temporibus? Unde
+          amet libero vel dolores?</p> -->
+
+      </div>
+      <!-- END OF EXTRACURRICULAR/ACTIVITIES -->
+
+      <div class="py-3 flex flex-col border-t border-fg gap-x-1">
+        <h1 class="font-bold text-lg">EDUCATION</h1>
+
+        <div class="flex flex-row items-center justify-between">
+          <h2 class="font-bold w-2/3">
+            Universidad Tecnológica Centroamericana, San Pedro Sula, Honduras
+          </h2>
+
+          <span>January 2023 - Present</span>
+        </div>
+
+        <ul class="mt-3 list-disc w-3/4 ml-4">
+          <li>Bachelor's in Software Engineering (Expected Graduation: September 2027)</li>
+          <li>Current GPA: 3.0/4.0</li>
+          <li>Proficient in Python, Java, C++, JavaScript.</li>
+          <li>Strong problem-solving, collaboration, leadership and debugging skills.</li>
+          <li>Relevant Coursework: Data Structures and Algorithms, Software Engineering, Database Management,
+            User Experience.</li>
+          <li>HarvardX (edX CS50x: Introduction to Computer Science), Online</li>
+        </ul>
+
+
+        <div class="mt-5 flex flex-row items-center justify-between">
+          <h2 class="font-bold w-2/3">
+            HarvardX (edX CS50x: Introduction to Computer Science), Online
+          </h2>
+
+          <span>November 2021 - April 2022</span>
+        </div>
+
+        <ul class="mt-3 list-disc w-3/4 ml-4">
+          <li>Completed intensive coursework covering algorithms, data structures, and foundational computer
+            science concepts using C and Python.</li>
+          <li>Developed a web-based stock trading simulator leveraging Python, Flask, REST APIs, HTML, and CSS.</li>
+          <li>Designed and presented a fully functional To-Do Manager web application as a capstone project,
+            utilizing Python, Flask, SQLite, and responsive front-end technologies</li>
+        </ul>
+
+      </div>
+      <!-- END OF EDUCATION SECTION -->
+
+    </div>
+    <!-- END OF INFORMATION SECTION -->
+
+    <hr class="w-11/12 my-3 lg:hidden" />
+    <div id="work">
+      <h1 class="text-xl font-extrabold">FEATURED WORK</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, architecto reiciendis! Quam quibusdam adipisci
+        maiores doloribus. Facilis in vitae, maxime, repellat architecto nemo ullam asperiores deleniti, magnam alias
+        suscipit eius.</p>
+    </div>
+  </div>
+
+</body>
+
 </html>
