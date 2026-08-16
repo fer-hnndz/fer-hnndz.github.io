@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { posts } from "@/content/posts";
+import { getAllPosts } from "@/lib/posts";
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <div className="min-h-dvh w-full px-6 sm:px-10 lg:px-16 py-10">
       <Link
