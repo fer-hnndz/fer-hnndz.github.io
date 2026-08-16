@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { FaBlog, FaFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa6";
 
@@ -12,7 +14,7 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-dvh flex flex-col items-center justify-center px-6 sm:px-10 lg:flex-row lg:items-center lg:justify-start lg:px-16">
       <div className="flex flex-col items-center text-center max-w-3xl lg:items-start lg:text-left">
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl" suppressHydrationWarning>
           {getGreeting()}, I&apos;m Jorge Hernández.
         </h1>
         <p className="font-serif text-lg sm:text-xl mt-6 lg:mt-8 text-slate-500">

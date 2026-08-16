@@ -14,11 +14,17 @@ export default function ProjectsPage() {
 
       <h1 className="font-serif text-4xl sm:text-5xl mt-6">Projects</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-        {projects.map((project) => (
-          <ProjectCard key={project.name} {...project} />
-        ))}
-      </div>
+      {projects.length === 0 ? (
+        <p className="font-serif text-lg text-slate-500 mt-10 border border-dashed border-slate-300 rounded-lg p-10 text-center">
+          It&apos;s empty here for now :)
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+          {projects.map((project) => (
+            <ProjectCard key={project.name} {...project} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
