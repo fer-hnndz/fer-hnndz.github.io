@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { FaBlog, FaFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa6";
 
@@ -12,12 +10,12 @@ function getGreeting() {
 
 export default function Home() {
   return (
-    <div className="relative w-full h-dvh overflow-hidden flex items-center justify-start px-16">
-      <div className="flex flex-col items-start max-w-3xl">
-        <h1 className="font-serif text-7xl" suppressHydrationWarning>
+    <div className="relative w-full min-h-dvh flex flex-col items-center justify-center px-6 sm:px-10 lg:flex-row lg:items-center lg:justify-start lg:px-16">
+      <div className="flex flex-col items-center text-center max-w-3xl lg:items-start lg:text-left">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-7xl">
           {getGreeting()}, I&apos;m Jorge Hernández.
         </h1>
-        <p className="font-serif text-xl mt-8 text-slate-500">
+        <p className="font-serif text-lg sm:text-xl mt-6 lg:mt-8 text-slate-500">
           You could call me a developer, but I engineer robust, high-quality
           solutions built to last.
         </p>
@@ -30,7 +28,7 @@ export default function Home() {
         </a>
       </div>
 
-      <nav className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-5">
+      <nav className="flex items-center justify-center gap-5 mt-10 lg:flex-col lg:fixed lg:right-6 lg:top-1/2 lg:-translate-y-1/2 lg:mt-0">
         <div className="group relative">
           <Link
             href="https://github.com/fer-hnndz"
@@ -61,7 +59,7 @@ export default function Home() {
 
         <div className="group relative">
           <Link
-            href="#projects"
+            href="/projects"
             className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
           >
             <FaFolderOpen />
@@ -73,7 +71,7 @@ export default function Home() {
 
         <div className="group relative">
           <Link
-            href="#"
+            href="/blog"
             className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
           >
             <FaBlog />

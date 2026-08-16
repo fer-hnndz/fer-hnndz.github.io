@@ -1,6 +1,7 @@
 import React from "react";
 import "./globals.css";
 import { Metadata } from "next";
+import { PageTransition } from "@/components/page-transition";
 
 export const metadata: Metadata = {
   title: "Jorge F. Hernández",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en ">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased overflow-x-hidden">
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }
