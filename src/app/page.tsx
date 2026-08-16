@@ -1,152 +1,88 @@
-"use server";
+"use client";
 
-import { CvEntry } from "@/components/cv-entry";
-import { Navbar } from "@/components/Navbar/navbar";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { BsTwitterX } from "react-icons/bs";
-import { SocialItem } from "@/components/social-item";
+import Link from "next/link";
+import { FaBlog, FaFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa6";
 
-export default async function Home() {
+function getGreeting() {
+  const now = new Date();
+  return now.getHours() * 60 + now.getMinutes() >= 18 * 60 + 30
+    ? "Evening"
+    : "Greetings";
+}
+
+export default function Home() {
   return (
-    <>
-      <Navbar />
-
-      {/* Header */}
-      <div className="container-md px-5 mx-auto flex flex-col lg:flex-row border-b pb-7">
-        <div className="flex-none basis-1/2">
-          <h1 className="font-bold text-lg dark:text-catpuccinMauve dark:underline dark:decoration-catpuccinMauve">
-            ABOUT ME
-          </h1>
-
-          <p className="mt-2 w-4/5 lg:w-3/4">
-            I'm a prospect software engineer passionate about building impactful
-            and highly efficient software solutions, sharing knowledge with the
-            world and contributing to open-source projects.
-          </p>
-
-          {/* SOCIALS */}
-          <div className="w-fit flex flex-row items-center justify-center mx-auto text-3xl mt-8 gap-x-8">
-            <SocialItem
-              icon={<FaGithub />}
-              url="https://github.com/fer-hnndz"
-            />
-            <SocialItem
-              icon={<FaLinkedin />}
-              url="https://www.linkedin.com/in/jfhernandez08/"
-            />
-            <SocialItem
-              icon={<BsTwitterX />}
-              url="https://twitter.com/fer-hnndz"
-            />
-          </div>
-        </div>
-
-        <div>
-          <h1 className="font-bold text-lg dark:text-catpuccinMauve dark:underline dark:decoration-catpuccinMauve">
-            Relevant Skills
-          </h1>
-          <ul className="mt-2 list-disc w-4/5 ml-4">
-            <li>
-              Languages: English and Spanish (bilingual proficiency), German
-              (A1).
-            </li>
-            <li>Operating Systems: Linux (daily use)</li>
-            <li>Programming: Python, Java, C++, JavaScript.</li>
-            <li>Web Development: Flask, REST APIs, HTML, CSS, React.</li>
-            <li>Backend: Docker, MVC, gRPC</li>
-            <li>Tools: Git, GitHub.</li>
-            <li>
-              Soft Skills: Problem-solving, teamwork, communication,
-              adaptability.
-            </li>
-          </ul>
-        </div>
+    <div className="relative w-full h-dvh overflow-hidden flex items-center justify-start px-16">
+      <div className="flex flex-col items-start max-w-3xl">
+        <h1 className="font-serif text-7xl" suppressHydrationWarning>
+          {getGreeting()}, I&apos;m Jorge Hernández.
+        </h1>
+        <p className="font-serif text-xl mt-8 text-slate-500">
+          You could call me a developer, but I engineer robust, high-quality
+          solutions built to last.
+        </p>
+        <a
+          href="mailto:jfernandohernandez28@gmail.com"
+          className="font-serif text-lg mt-6 hover:underline transition-all duration-200"
+        >
+          Shoot me an email, let&apos;s talk{" "}
+          <span className="font-mono text-3xl ml-1 mb-1 font-extrabold">→</span>
+        </a>
       </div>
 
-      {/* <!-- Layout container --> */}
-      <div className="container-md px-5 flex flex-col lg:flex-row justify-between mx-auto pt-4 lg:h-fit lg:pb-6 gap-x-3">
-        {/* CV Left side */}
-        <div className="lg:h-10/12 basis-1/2 lg:overflow-y-scroll scroll-pb-5">
-          <div className="py-3 flex flex-col border-fg gap-x-1">
-            <h1 className="font-bold text-lg dark:text-catpuccinMauve dark:underline dark:decoration-catpuccinMauve">
-              EXTRACURRICULAR / VOLUNTEER EXPERIENCE
-            </h1>
-            <CvEntry
-              title="Casa David - Lead Developer"
-              duration="October - December 2024"
-            >
-              <p>
-                Led the v1.1 update of Casa David’s internal software, fixing
-                bugs and adding features based on user feedback. Contributed to
-                both frontend (React, Tailwind CSS) and backend (Express.js,
-                PostgreSQL) development, and successfully migrated and deployed
-                the app to Heroku for improved reliability and user experience
-              </p>
-            </CvEntry>
-          </div>
-          {/* <!-- END OF EXTRACURRICULAR/ACTIVITIES --> */}
-
-          <div className="py-3 flex flex-col border-t border-fg gap-x-1">
-            <h1 className="font-bold text-lg dark:text-catpuccinMauve dark:underline dark:decoration-catpuccinMauve">
-              EDUCATION
-            </h1>
-            <CvEntry
-              title="Universidad Tecnológica Centroamericana, San Pedro Sula, Honduras"
-              duration="January 2023 - Present"
-            >
-              <ul className="mt-3 list-disc w-3/4 ml-4">
-                <li>
-                  Bachelor's in Software Engineering (Expected Graduation:
-                  September 2027)
-                </li>
-                <li>Current GPA: 3.0/4.0</li>
-                <li>Proficient in Python, Java, C++, JavaScript.</li>
-                <li>
-                  Strong problem-solving, collaboration, leadership and
-                  debugging skills.
-                </li>
-                <li>
-                  Relevant Coursework: Data Structures and Algorithms, Software
-                  Engineering, Database Management, User Experience.
-                </li>
-              </ul>
-            </CvEntry>
-
-            <CvEntry
-              title="Harvard CS50x - Introduction to Computer Science"
-              duration="Nov. 2021 - Apr. 2022"
-            >
-              <ul className="mt-3 list-disc w-3/4 ml-4">
-                <li>
-                  Completed intensive coursework covering algorithms, data
-                  structures, and foundational computer science concepts using C
-                  and Python.
-                </li>
-                <li>
-                  Developed a web-based stock trading simulator leveraging
-                  Python, Flask, REST APIs, HTML, and CSS.
-                </li>
-                <li>
-                  Designed and presented a fully functional To-Do Manager web
-                  application as a capstone project, utilizing Python, Flask,
-                  SQLite, and responsive front-end technologies.
-                </li>
-              </ul>
-            </CvEntry>
-          </div>
-          {/* <!-- END OF EDUCATION SECTION --> */}
+      <nav className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-5">
+        <div className="group relative">
+          <Link
+            href="https://github.com/fer-hnndz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
+          >
+            <FaGithub />
+          </Link>
+          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            GitHub
+          </span>
         </div>
-        {/* <!-- END OF INFORMATION SECTION --> */}
 
-        {/*Right side - Featured Work */}
-        <hr className="w-4/5 my-3 lg:hidden" />
-        <div id="work" className="flex-none basis-1/2 px-5">
-          <h1 className="text-xl font-extrabold dark:text-catpuccinMauve dark:underline dark:decoration-catpuccinMauve">
-            FEATURED WORK
-          </h1>
-          <p className="mt-2">{"It's empty here :("}</p>
+        <div className="group relative">
+          <Link
+            href="https://www.linkedin.com/in/jfhernandez08/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
+          >
+            <FaLinkedin />
+          </Link>
+          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            LinkedIn
+          </span>
         </div>
-      </div>
-    </>
+
+        <div className="group relative">
+          <Link
+            href="#projects"
+            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
+          >
+            <FaFolderOpen />
+          </Link>
+          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Projects
+          </span>
+        </div>
+
+        <div className="group relative">
+          <Link
+            href="#"
+            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
+          >
+            <FaBlog />
+          </Link>
+          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Blog
+          </span>
+        </div>
+      </nav>
+    </div>
   );
 }
