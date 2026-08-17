@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaBlog, FaFolderOpen, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Greeting } from "@/components/greeting";
 
 export default function Home() {
@@ -51,29 +51,6 @@ export default function Home() {
           </span>
         </div>
 
-        <div className="group relative">
-          <Link
-            href="/projects"
-            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
-          >
-            <FaFolderOpen />
-          </Link>
-          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Projects
-          </span>
-        </div>
-
-        <div className="group relative">
-          <Link
-            href="/blog"
-            className="text-2xl hover:text-catpuccinRed transition-colors duration-200"
-          >
-            <FaBlog />
-          </Link>
-          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded bg-slate-900 text-white text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Blog
-          </span>
-        </div>
       </nav>
     </div>
   );
